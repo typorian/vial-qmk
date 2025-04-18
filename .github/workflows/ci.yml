@@ -48,6 +48,14 @@ jobs:
           echo "::error::$(ls -1 .build/failed.log.* | wc -l) keymaps failed to build. See logs and/or job summary for details."
           exit 1
         fi
+    - name: Upload firmware artifacts
+      uses: actions/upload-artifact@v4
+      if: ${{ success() }}  # Only upload if build succeeded
+      with:
+        name: vial-firmwares
+        path: |
+          .build/*_vial.uf2
+          .build/*_vial.bin
 
     - name: Dump failure logs
       if: ${{ failure() && steps.build.conclusion == 'failure' }}
