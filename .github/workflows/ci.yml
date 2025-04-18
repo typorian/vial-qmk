@@ -43,7 +43,7 @@ jobs:
       id: build
       run: |
         git config --global --add safe.directory $(pwd)
-        if ! qmk mass-compile -km "${KEYMAP}" -e CONVERT_TO=helios -j $(nproc);
+        if ! qmk compile -kb crkbd/rev1 -km vial -e CONVERT_TO=helios;
           then
           echo "::error::$(ls -1 .build/failed.log.* | wc -l) keymaps failed to build. See logs and/or job summary for details."
           exit 1
