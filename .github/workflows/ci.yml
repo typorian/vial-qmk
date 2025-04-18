@@ -54,8 +54,8 @@ jobs:
       with:
         name: vial-firmwares
         path: |
-          .build/*_vial.uf2
-          .build/*_vial.bin
+          .build/*.uf2
+          .build/*.bin
 
     - name: Dump failure logs
       if: ${{ failure() && steps.build.conclusion == 'failure' }}
