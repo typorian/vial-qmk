@@ -46,6 +46,9 @@ jobs:
         if ! qmk mass-compile -km "${KEYMAP}" -e CONVERT_TO=helios -j $(nproc);
           then
           echo "::error::$(ls -1 .build/failed.log.* | wc -l) keymaps failed to build. See logs and/or job summary for details."
+        if ! qmk mass-compile -km "${KEYMAP}" -j $(nproc);
+          then
+          echo "compiling without converting to helios also failed."
           exit 1
         fi
     - name: Upload firmware artifacts
