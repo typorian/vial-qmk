@@ -1,3 +1,6 @@
+this repo compiles firmware for the corne keyboard, vial enabled, converting to helios
+this repo also compiles firmware for the preonic rev3 vial enabled
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
