@@ -390,6 +390,7 @@ bool oled_task_user(void) {
 #endif
 
 bool is_alt_tab_active = false;
+bool is_win_lock_active = false;
 enum custom_keycodes {          // Make sure have the awesome keycode ready
   ALT_TAB = QK_KB_0,
   WIN_L,
@@ -419,8 +420,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
         case WIN_L: // Win Lock
             if (record->event.pressed) {
-                if (!is_alt_tab_active) {
-                    is_alt_tab_active = true;
+                if (!is_win_lock_active) {
+                    is_win_lock_active = true;
                     register_code(KC_LGUI);
                 }
                 register_code(KC_L);
