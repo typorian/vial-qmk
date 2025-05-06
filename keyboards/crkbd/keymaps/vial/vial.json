@@ -9,6 +9,10 @@
 	{"name": "SAltTab",
 	 "title": "Super Alt Tab",
 	 "shortName": "ALT_TAB"
+	},
+	{"name": "WinLock",
+	 "title": "Windows Lock",
+	 "shortName": "WIN_L"
 	}
     ],
   "matrix": { "rows": 8, "cols": 6 },
