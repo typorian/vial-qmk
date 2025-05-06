@@ -391,7 +391,7 @@ bool oled_task_user(void) {
 
 bool is_alt_tab_active = false;
 enum custom_keycodes {          // Make sure have the awesome keycode ready
-  ALT_TAB = SAFE_RANGE,
+  ALT_TAB = QK_KB_0,
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
