@@ -28,3 +28,9 @@
       ]
   }
 }
+"customKeycodes": [
+	{"name": "SAltTab",
+	 "title": "Super Alt Tab",
+	 "shortName": "ALT_TAB"
+	}
+],
