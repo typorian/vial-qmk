@@ -5,6 +5,12 @@
   "lighting": {
       "extends": "qmk_rgblight"
   },
+    "customKeycodes": [
+	{"name": "SAltTab",
+	 "title": "Super Alt Tab",
+	 "shortName": "ALT_TAB"
+	}
+    ],
   "matrix": { "rows": 8, "cols": 6 },
   "layouts": {
       "keymap": [
@@ -28,9 +34,4 @@
       ]
   }
 }
-"customKeycodes": [
-	{"name": "SAltTab",
-	 "title": "Super Alt Tab",
-	 "shortName": "ALT_TAB"
-	}
-],
+
