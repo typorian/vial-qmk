@@ -13,28 +13,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-## Hardware features
+QUANTUM_LIB_SRC += spi_master.c
+CUSTOM_MATRIX = lite
+CUSTOM_ENCODER = yes
 
-# OLED: optional, can be installed in socket
-OLED_ENABLE = yes          # Enable OLEDs, `yes` or `no`
+SERIAL_DRIVER = usart
+OLED_DRIVER = ssd1306
 
-# Audio: optional, requires soldering
-# The Elora is equipped with a footprint
-# for the PKLCS1212E4001-R1
-AUDIO_ENABLE = no          # Enable audio support, `yes` or `no`
-
-## Software features
-
-# Supported keycodes
-MOUSEKEY_ENABLE = yes      # Mouse movement using keys
-EXTRAKEY_ENABLE = yes      # Audio and system control
-
-# N-key rollover instead of 6-key rollover
-NKRO_ENABLE = yes          # Enable N-Key Rollover
-
-## Vial-specific settings
-
-VIA_ENABLE = yes
-VIAL_ENABLE = yes
-VIALRGB_ENABLE = yes
-ENCODER_MAP_ENABLE = yes
+# Myriad boilerplate
+SRC += myriad.c analog.c
+POINTING_DEVICE_ENABLE = yes
+POINTING_DEVICE_DRIVER = custom
