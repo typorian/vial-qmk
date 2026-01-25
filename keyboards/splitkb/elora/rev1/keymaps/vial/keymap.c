@@ -604,15 +604,24 @@ void draw_bongocat(void) {
 }
 
 // Function to display the current layer
+// Function to display the current layer and Lock status
 void draw_layer_info(void) {
     uint8_t current_layer = get_highest_layer(layer_state); // Get the current layer
     char layer_str[16];
-    snprintf(layer_str, sizeof(layer_str), "L: %d", current_layer); // Format the layer string
+    
+    // Get LED states for Num Lock and Caps Lock
+    led_t led_state = host_keyboard_led_state();
+    char num_char = led_state.num_lock ? 'N' : ' ';
+    char cap_char = led_state.caps_lock ? 'C' : ' ';
+
+    // Format string: "L:0 NC" (Flags appear only when active)
+    snprintf(layer_str, sizeof(layer_str), "L:%d %c%c", current_layer, num_char, cap_char);
 
     // Display the layer information at a specific position (e.g., top-left corner)
     oled_set_cursor(0, 0); // Set cursor to the top-left corner
     oled_write(layer_str, false); // Write the layer string
 }
+
         
 bool oled_task_user(void) {
 
