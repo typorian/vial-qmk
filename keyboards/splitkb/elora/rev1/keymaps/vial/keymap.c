@@ -307,14 +307,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 #ifdef OLED_ENABLE
-oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
-    if (is_keyboard_left()) {
-        return OLED_ROTATION_270;
-    } else {
-        return OLED_ROTATION_90;
-    }
-}
-
 extern matrix_row_t matrix[MATRIX_ROWS];
 
 #define ANIM_FRAME_DURATION 100
