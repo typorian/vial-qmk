@@ -437,18 +437,23 @@ uint8_t last_bongo_frame = 12;
 
 void write_bongochar_at_pixel_xy(uint8_t x, uint8_t y, uint8_t data, bool invert) {
     uint8_t i, j, temp;
-    for (i = 0; i < 6 ; i++) { // 6 = font width
-        temp = pgm_read_byte(&bongofont[data * 6]+i);
-        for (j = 0; j < 8; j++) {  // 8 = font height
+
+    for (i = 0; i < 6; i++) { // 6 = font width
+        temp = pgm_read_byte(&bongofont[data * 6] + i);
+        for (j = 0; j < 8; j++) { // 8 = font height
             if (temp & 0x01) {
-                oled_write_pixel(x + i, y + j, !invert);
+                // ROTATION APPLIED HERE:
+                // Original: oled_write_pixel(x + i, y + j, !invert);
+                // Rotated 90 Left: New_X = Old_Y, New_Y = 127 - Old_X
+                oled_write_pixel(y + j, 127 - (x + i), !invert);
             } else {
-                oled_write_pixel(x + i, y + j, invert);
+                oled_write_pixel(y + j, 127 - (x + i), invert);
             }
             temp >>= 1;
         }
     }
 }
+
 
 bool is_key_down(void) {
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
@@ -496,35 +501,41 @@ void eval_anim_state(void) {
 }
 
 void draw_bongo_table(void) {
-    //draws the table edge for bongocat, this edge doesn't change during the animation
+    // Rotated table drawing
     uint8_t i;
     uint8_t y = 31;
     uint8_t j = 0;
+
+    // First section
     for (i = 17; i < 57; i++) {
-        oled_write_pixel(i, y, true); //every five horizontal pixels, move up one pixel to make a diagonal line
+        // Rotate: x becomes y, y becomes x. 
+        // 90 deg left transform: (x, y) -> (y, 127 - x)
+        // Assuming screen width is 128. Adjust 127 if your offset is different.
+        oled_write_pixel(y, 127 - i, true); 
+        
         if (j == 4) {
             --y;
-            j=0;
+            j = 0;
         } else {
             j++;
         }
     }
 
-    y=15;
-    j=0;
+    // Second section
+    y = 15;
+    j = 0;
     for (i = 91; i < 128; i++) {
-
-        oled_write_pixel(i, y, true); //every four horizontal pixels, move up one pixel to make a diagonal line
+        oled_write_pixel(y, 127 - i, true);
+        
         if (j == 3) {
             --y;
-            j=0;
+            j = 0;
         } else {
             j++;
         }
     }
-
-
 }
+
 
 
 void draw_bongocat_frame(int framenumber) {
