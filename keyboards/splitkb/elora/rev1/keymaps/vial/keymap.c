@@ -619,6 +619,7 @@ bool oled_task_user(void) {
     return false;
 }
 #endif
+/* DELETE THIS LINE TO UNCOMMENT (1/2)
 
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
