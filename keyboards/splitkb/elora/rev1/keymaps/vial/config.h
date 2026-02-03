@@ -21,3 +21,4 @@
 
 #define VIAL_UNLOCK_COMBO_ROWS { 3, 9 }
 #define VIAL_UNLOCK_COMBO_COLS { 2, 5 }
+#define JOYSTICK_DEADZONE 50
