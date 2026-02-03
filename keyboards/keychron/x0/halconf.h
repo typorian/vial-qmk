@@ -16,6 +16,10 @@
 
 #pragma once
 
+<<<<<<<< HEAD:keyboards/keychron/x0/halconf.h
 #define HAL_USE_I2C TRUE
+========
+#define HAL_USE_SPI TRUE
+>>>>>>>> upstream/vial:keyboards/handwired/onekey/kb2040/halconf.h
 
 #include_next <halconf.h>
