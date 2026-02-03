@@ -1,4 +1,0 @@
-DEFAULT_FOLDER = crkbd/rev1
-OLED_ENABLE = yes
-VIA_ENABLE = yes
-CONVERT_TO=helios
