@@ -285,7 +285,7 @@ report_mouse_t pointing_device_driver_get_report(report_mouse_t mouse_report) {
     // Values are now -512..512
 
     // Create a dead zone in the middle where the mouse doesn't move
-    const int16_t dead_zone = 10;
+    const int16_t dead_zone = 50;
     if ((y < 0 && y > -1*dead_zone) || (y > 0 && y < dead_zone)) {
         y = 0;
     }
