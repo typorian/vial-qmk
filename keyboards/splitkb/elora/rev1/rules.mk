@@ -6,4 +6,4 @@ SRC += myriad.c matrix.c
 ANALOG_DRIVER_REQUIRED = yes
 POINTING_DEVICE_DRIVER = custom
 
-MOUSEKEY_ENABLE = no
+MOUSEKEY_ENABLE = yes
